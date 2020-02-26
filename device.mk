@@ -344,6 +344,7 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
+    fastbootd \
     librecovery_updater_xiaomi
 
 PRODUCT_PACKAGES += \
