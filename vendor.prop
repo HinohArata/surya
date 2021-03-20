@@ -85,10 +85,7 @@ vendor.audio.usb.disable.sidetone=true
 vendor.audio.use.sw.alac.decoder=true
 vendor.audio.use.sw.ape.decoder=true
 vendor.audio.volume.headset.gain.depcal=true
-<<<<<<< HEAD
-=======
 vendor.voice.path.for.pcm.voip=true
->>>>>>> 3a92c21 (surya: Add prebuilt audio HAL from stock)
 
 # Bluetooth
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
@@ -173,6 +170,11 @@ persist.sys.sf.color_mode=9
 
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
+# HVDCP
+persist.vendor.cp.fcc_main_ua=400000
+persist.vendor.cp.taper_term_mv=6500
+persist.vendor.cp.vbus_offset_mv=1040
 
 # IMS
 persist.dbg.volte_avail_ovr=1
