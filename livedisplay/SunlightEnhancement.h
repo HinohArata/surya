@@ -14,30 +14,17 @@
  * limitations under the License.
  */
 
-<<<<<<< HEAD
 #ifndef VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
 #define VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
 
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 #include <vendor/lineage/livedisplay/2.1/ISunlightEnhancement.h>
-=======
-#ifndef VENDOR_LINEAGE_LIVEDISPLAY_V2_0_SUNLIGHTENHANCEMENT_H
-#define VENDOR_LINEAGE_LIVEDISPLAY_V2_0_SUNLIGHTENHANCEMENT_H
-
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
-#include <vendor/lineage/livedisplay/2.0/ISunlightEnhancement.h>
->>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
 
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
-<<<<<<< HEAD
 namespace V2_1 {
-=======
-namespace V2_0 {
->>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
 namespace implementation {
 
 using ::android::sp;
@@ -46,27 +33,15 @@ using ::android::hardware::Void;
 
 class SunlightEnhancement : public ISunlightEnhancement {
   public:
-<<<<<<< HEAD
     // Methods from ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement follow.
-=======
-    // Methods from ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement follow.
->>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool enabled) override;
 };
 
 }  // namespace implementation
-<<<<<<< HEAD
 }  // namespace V2_1
-=======
-}  // namespace V2_0
->>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor
 
-<<<<<<< HEAD
 #endif  // VENDOR_LINEAGE_LIVEDISPLAY_V2_1_SUNLIGHTENHANCEMENT_H
-=======
-#endif  // VENDOR_LINEAGE_LIVEDISPLAY_V2_0_SUNLIGHTENHANCEMENT_H
->>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
