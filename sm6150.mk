@@ -14,11 +14,14 @@
 # limitations under the License.
 #
 
+# Product launched with 10.0
+PRODUCT_SHIPPING_API_LEVEL := 29
+
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Call the proprietary setup
-$(call inherit-product, vendor/xiaomi/sm6150-common/sm6150-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/surya/surya-vendor.mk)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -135,6 +138,9 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.3-service.clearkey
 
 # Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service.surya
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
@@ -194,9 +200,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/security/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.surya
+
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service.xiaomi_sm6150
+    vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.lineage.livedisplay@2.0-service.surya
 
 # Media
 PRODUCT_PACKAGES += \
@@ -231,6 +242,29 @@ PRODUCT_COPY_FILES += \
 # Network
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
+
+# NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    NfcNci \
+    SecureElement \
+    Tag
+
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2-service
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_surya/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_surya/android.hardware.nfc.ese.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_surya/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_surya/android.hardware.nfc.hcef.xml \
+    frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_surya/android.hardware.nfc.uicc.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_surya/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_surya/com.nxp.mifare.xml
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \

@@ -14,10 +14,10 @@
 # limitations under the License.
 #
 
-COMMON_PATH := device/xiaomi/sm6150-common
+DEVICE_PATH := device/xiaomi/surya
 
 # Inherit from proprietary files
-include vendor/xiaomi/sm6150-common/BoardConfigVendor.mk
+include vendor/xiaomi/surya/BoardConfigVendor.mk
 
 # Architecture
 TARGET_ARCH := arm64
@@ -36,6 +36,9 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := surya,karna
 
 # Audio
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
@@ -81,8 +84,16 @@ LOC_HIDL_VERSION := 4.0
 # HIDL
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/configs/hidl/manifest.xml
 DEVICE_MANIFEST_FILE += hardware/qcom-caf/sm8150/media/conf_files/sm6150/c2_manifest.xml
-DEVICE_MATRIX_FILE := $(COMMON_PATH)/configs/hidl/compatibility_matrix.xml
-ODM_MANIFEST_FILES += $(COMMON_PATH)/configs/hidl/manifest-qva.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
+ODM_MANIFEST_FILES += $(DEVICE_PATH)/configs/hidl/manifest-qva.xml
+ODM_MANIFEST_SKUS += surya
+ODM_MANIFEST_SURYA_FILES := \
+    $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml \
+    $(DEVICE_PATH)/configs/hidl/manifest-qva.xml
+
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_surya
+TARGET_RECOVERY_DEVICE_MODULES := libinit_surya
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
