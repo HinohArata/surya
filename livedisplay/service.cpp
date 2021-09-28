@@ -13,64 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #define LOG_TAG "vendor.lineage.livedisplay@2.0-service.surya"
-
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
-<<<<<<< HEAD
-#include <livedisplay/sdm/PictureAdjustment.h>
 
-#include "AntiFlicker.h"
+#include "AdaptiveBacklight.h"
 #include "SunlightEnhancement.h"
 
-using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
-using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
-using ::vendor::lineage::livedisplay::V2_1::IAntiFlicker;
-using ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement;
-using ::vendor::lineage::livedisplay::V2_1::implementation::AntiFlicker;
-using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
-
-int main() {
-    android::sp<IAntiFlicker> antiFlicker = new AntiFlicker();
-    android::sp<ISunlightEnhancement> sunlightEnhancement = new SunlightEnhancement();
-
-    std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
-    android::sp<PictureAdjustment> pictureAdjustment = new PictureAdjustment(controller);
-
-    android::hardware::configureRpcThreadpool(1, true /*callerWillJoin*/);
-
-    if (antiFlicker->registerAsService() != android::OK) {
-        LOG(ERROR) << "Cannot register anti flicker HAL service.";
-        return 1;
-    }
-    if (pictureAdjustment->registerAsService() != android::OK) {
-        LOG(ERROR) << "Cannot register picture adjustment HAL service.";
-        return 1;
-    }
-=======
-
-#include "SunlightEnhancement.h"
-
+using ::vendor::lineage::livedisplay::V2_0::IAdaptiveBacklight;
 using ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_0::implementation::AdaptiveBacklight;
 using ::vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
 
 int main() {
+    android::sp<IAdaptiveBacklight> adaptiveBacklight = new AdaptiveBacklight();
     android::sp<ISunlightEnhancement> sunlightEnhancement = new SunlightEnhancement();
 
     android::hardware::configureRpcThreadpool(1, true /*callerWillJoin*/);
 
->>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
+    if (adaptiveBacklight->registerAsService() != android::OK) {
+        LOG(ERROR) << "Cannot register adaptive backlight HAL service.";
+        return 1;
+    }
+
     if (sunlightEnhancement->registerAsService() != android::OK) {
         LOG(ERROR) << "Cannot register sunlight enhancement HAL service.";
         return 1;
     }
-
     LOG(INFO) << "LiveDisplay HAL service is ready.";
-
     android::hardware::joinRpcThreadpool();
-
     LOG(ERROR) << "LiveDisplay HAL service failed to join thread pool.";
     return 1;
 }
