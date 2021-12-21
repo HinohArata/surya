@@ -20,9 +20,12 @@ cc_binary {
     init_rc: ["vendor.lineage.livedisplay@2.0-service.surya.rc"],
     relative_install_path: "hw",
     srcs: [
+<<<<<<< HEAD
         ":vendor.lineage.livedisplay@2.0-sdm-pa",
         ":vendor.lineage.livedisplay@2.0-sdm-utils",
         "AntiFlicker.cpp",
+=======
+>>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
         "SunlightEnhancement.cpp",
         "service.cpp",
     ],
@@ -33,9 +36,12 @@ cc_binary {
         "libhidlbase",
         "libutils",
         "vendor.lineage.livedisplay@2.0",
+<<<<<<< HEAD
         "vendor.lineage.livedisplay@2.1",
     ],
     header_libs: [
         "vendor.lineage.livedisplay@2.0-sdm-headers",
+=======
+>>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
     ],
 }

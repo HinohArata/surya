@@ -25,7 +25,11 @@
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
+<<<<<<< HEAD
 namespace V2_1 {
+=======
+namespace V2_0 {
+>>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
 namespace implementation {
 
 static constexpr const char* kHbmStatusPath = "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm";
@@ -48,7 +52,11 @@ Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
 }
 
 }  // namespace implementation
+<<<<<<< HEAD
 }  // namespace V2_1
+=======
+}  // namespace V2_0
+>>>>>>> 4585834 (surya: Bring back SunlightEnhancement LiveDisplay HAL)
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor
