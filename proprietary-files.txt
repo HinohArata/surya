@@ -1,4 +1,4 @@
-# All blobs below are extracted from Surya Global V12.5.3.0.RJGMIXM, unless pinned
+# All blobs below are extracted from Surya Global V12.5.4.0.RJGMIXM, unless pinned
 
 # ADSP
 vendor/bin/adsprpcd
@@ -1039,4 +1039,3 @@ vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
 vendor/bin/nv_mac
 # WLAN
 vendor/bin/cnss-daemon
-
