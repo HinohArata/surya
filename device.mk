@@ -35,6 +35,9 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# XiaomiParts
+$(call inherit-product, device/xiaomi/surya/parts/parts.mk)
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService-Soong \
