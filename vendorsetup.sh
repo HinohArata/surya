@@ -3,7 +3,7 @@ git clone --depth=1 https://github.com/HinohArata/surya.git -b vendor vendor/xia
 
 # Clone hardware repository
 rm -rvf hardware/xiaomi
-git clone --depth=1 https://github.com/HinohArata/surya.git -b hardware/xiaomi hardware/xiaomi
+git clone --depth=1 https://github.com/HinohArata/surya.git hardware/xiaomi
 
 # Clone vendor miuicamera repository
 git clone --depth=1 https://gitlab.com/HinohArata/vendor_xiaomi_surya-miuicamera.git -b new vendor/xiaomi/surya-miuicamera
